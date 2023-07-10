@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+   "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+  },
+  "exclude": ["./graphql.config.ts"]
+}
