@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import { parseInt } from 'lodash';
 const router = Router();
-type User={
+type user={
     name:string
     age:number
 }
-const users:User[]=[
+const users:user[]=[
     {
         name:'john',
         age:20
@@ -15,16 +15,24 @@ const users:User[]=[
         age:22
     }
 ]
+//get method
 router.route('/').get((req, res) => {
     return res.json ({users})
 })
+//post method
 router.route('/').post((req, res) => {
-    const {name,age}=req.body as User
+    const {name,age}=req.body as user
     // console.log(name,age); 
     users.push({name,age});
     console.log(users);
     return res.json ({ message: 'this is users route from post method' })
 })
+//put method
+router.put("/:name",(req,res)=>{
+    console.log(req.body)
+    return res.json({message:'Hello from put!'})
+   })
+//    delete method
 router.delete('/:name',(req,res)=>{
  const name=req.params.name;
  const index= users.findIndex((user)=>user.name === name)
